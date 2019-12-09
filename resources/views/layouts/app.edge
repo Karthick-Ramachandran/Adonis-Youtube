@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{ style('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css') }}
+    <title>Adonis Starter</title>
+</head>
+
+<body>
+    @include('layouts.navbar')
+    @if(getErrorFor())
+
+    <div class="container mt-3">
+        <div class="alert alert-danger">{{ getErrorFor() }}</div>
+    </div>
+    @endif
+    @if(flashMessage('message'))
+
+    <div class="container mt-3">
+        <div class="alert alert-success">{{ flashMessage('message') }}</div>
+    </div>
+    @endif
+    <div class="container">
+        @!section('content')
+    </div>
+
+  <script>
+   function submitForm() {
+       document.getElementById('logout').submit()
+   }
+  </script>
+    {{ script('https://code.jquery.com/jquery-3.4.1.slim.min.js') }}
+    {{ script('https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js') }}
+    {{ script('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js') }}
+</body>
+
+</html>
